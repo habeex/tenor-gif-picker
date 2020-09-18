@@ -6,7 +6,7 @@ A plugin that allows you to pick animated GIF images from [Tenor](https://tenor.
 
 ## Getting Started
 
-First, you need to register an app at the [Tenor Developers Portal](https://developers.tenor.com/) in order to retrieve an API key.
+First, you need to register an app at the [Tenor Developers Portal](https://api.tenor.com/) in order to retrieve an API key.
 
 Pick a GIF:
 
