@@ -11,7 +11,7 @@ export 'package:tenor_picker/src/widgets/tenor_image.dart';
 typedef ErrorListener = void Function(dynamic error);
 
 /// Provides Giphy picker functionality.
-class TenorPicker {
+class GiphyPicker {
   /// Renders a full screen modal dialog for searching, and selecting a Giphy image.
   static Future<TenorGif> pickGif({
     @required BuildContext context,
@@ -23,32 +23,37 @@ class TenorPicker {
     Brightness brightness,
     ErrorListener onError,
     bool showPreviewPage = true,
-    String searchText = 'Search GIPHY',
+    String searchText = 'Search GIFs',
   }) async {
     TenorGif result;
 
-    await Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (BuildContext context) => TenorContext(
-                  child: TenorSearchPage(),
-                  apiKey: apiKey,
-                  onError: onError ?? (error) => _showErrorDialog(context, error),
-                  onSelected: (gif) {
-                    result = gif;
+    await showModalBottomSheet(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(10))),
+        context: context,
+        isScrollControlled: true,
+        builder: (context) => TenorContext(
+              child: TenorSearchPage(
+                appBar: appBar,
+                title: title,
+                actionsIconTheme: actionsIconTheme,
+                iconTheme: iconTheme,
+                brightness: brightness,
+              ),
+              apiKey: apiKey,
+              onError: onError ?? (error) => _showErrorDialog(context, error),
+              onSelected: (gif) {
+                result = gif;
 
-                    // pop preview page if necessary
-                    if (showPreviewPage) {
-                      Navigator.pop(context);
-                    }
-                    // pop giphy_picker
-                    Navigator.pop(context);
-                  },
-                  showPreviewPage: showPreviewPage,
-                  searchText: searchText,
-                ),
-            fullscreenDialog: true));
-
+                // pop preview page if necessary
+                if (showPreviewPage) {
+                  Navigator.pop(context);
+                }
+                // pop giphy_picker
+                Navigator.pop(context);
+              },
+              showPreviewPage: showPreviewPage,
+              searchText: searchText,
+            ));
     return result;
   }
 

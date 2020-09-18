@@ -5,12 +5,23 @@ import 'package:tenor_picker/src/widgets/tenor_preview_page.dart';
 
 import 'package:tenor_picker/src/widgets/tenor_thumbnail.dart';
 
-/// A selectable grid view of gif thumbnails.
 class TenorThumbnailGrid extends StatelessWidget {
   final TenorRepository repo;
   final ScrollController scrollController;
+  final Widget title;
+  final IconThemeData actionsIconTheme;
+  final IconThemeData iconTheme;
+  final Brightness brightness;
 
-  const TenorThumbnailGrid({Key key, @required this.repo, this.scrollController}) : super(key: key);
+  const TenorThumbnailGrid(
+      {Key key,
+      @required this.repo,
+      @required this.title,
+      this.actionsIconTheme,
+      this.iconTheme,
+      this.brightness,
+      this.scrollController})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +42,10 @@ class TenorThumbnailGrid extends StatelessWidget {
                     builder: (BuildContext context) => TenorPreviewPage(
                       gif: gif,
                       onSelected: giphy.onSelected,
+                      title: title,
+                      actionsIconTheme: actionsIconTheme,
+                      iconTheme: iconTheme,
+                      brightness: brightness,
                     ),
                   ),
                 );

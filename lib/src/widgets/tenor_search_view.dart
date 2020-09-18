@@ -5,8 +5,19 @@ import 'package:tenor_picker/src/model/tenor_repository.dart';
 import 'package:tenor_picker/src/widgets/tenor_context.dart';
 import 'package:tenor_picker/src/widgets/tenor_thumbnail_grid.dart';
 
-/// Provides the UI for searching Giphy gif images.
 class TenorSearchView extends StatefulWidget {
+  final Widget title;
+  final IconThemeData actionsIconTheme;
+  final IconThemeData iconTheme;
+  final Brightness brightness;
+
+  TenorSearchView({
+    @required this.title,
+    this.actionsIconTheme,
+    this.iconTheme,
+    this.brightness,
+  });
+
   @override
   _TenorSearchViewState createState() => _TenorSearchViewState();
 }
@@ -36,16 +47,15 @@ class _TenorSearchViewState extends State<TenorSearchView> {
   Widget build(BuildContext context) {
     final giphy = TenorContext.of(context);
 
-    return Column(children: <Widget>[
-      Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10),
-        child: TextField(
-          controller: _textController,
-          decoration: InputDecoration(hintText: giphy.searchText),
-          onChanged: (value) => _delayedSearch(giphy, value),
-        ),
+    return ConstrainedBox(
+      constraints: new BoxConstraints(
+        minHeight: 450,
+        maxHeight: 550,
       ),
-      Expanded(
+      child: Column(children: <Widget>[
+        Expanded(
+            child: ClipRRect(
+          borderRadius: const BorderRadius.all(Radius.circular(20)),
           child: StreamBuilder(
               stream: _repoController.stream,
               builder: (BuildContext context, AsyncSnapshot<TenorRepository> snapshot) {
@@ -54,9 +64,14 @@ class _TenorSearchViewState extends State<TenorSearchView> {
                       ? NotificationListener(
                           child: RefreshIndicator(
                               child: TenorThumbnailGrid(
-                                  key: Key('${snapshot.data.hashCode}'),
-                                  repo: snapshot.data,
-                                  scrollController: _scrollController),
+                                key: Key('${snapshot.data.hashCode}'),
+                                repo: snapshot.data,
+                                scrollController: _scrollController,
+                                title: widget.title,
+                                actionsIconTheme: widget.actionsIconTheme,
+                                iconTheme: widget.iconTheme,
+                                brightness: widget.brightness,
+                              ),
                               onRefresh: () => _search(giphy, term: _textController.text)),
                           onNotification: (n) {
                             // hide keyboard when scrolling
@@ -72,8 +87,69 @@ class _TenorSearchViewState extends State<TenorSearchView> {
                   return Center(child: Text('An error occurred'));
                 }
                 return Center(child: CircularProgressIndicator());
-              }))
-    ]);
+              }),
+        )),
+        Container(
+          height: null,
+          padding: EdgeInsets.only(top: 3, left: 8, right: 8, bottom: MediaQuery.of(context).viewInsets.bottom),
+          child: Column(
+            children: [
+              Row(
+                children: <Widget>[
+                  InkWell(
+                    onTap: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Container(
+                      margin: EdgeInsets.only(left: 8, right: 8),
+                      child: Icon(
+                        Icons.close,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Container(
+                        margin: EdgeInsets.only(top: 4, bottom: 8, right: 8),
+                        padding: EdgeInsets.only(left: 16),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Stack(
+                                overflow: Overflow.visible,
+                                children: <Widget>[
+                                  MediaQuery(
+                                    data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(right: 8.0),
+                                      child: TextField(
+                                        controller: _textController,
+                                        decoration: InputDecoration.collapsed(
+                                            hintText: 'Search GIFs', hintStyle: TextStyle(fontSize: 16)),
+                                        onChanged: (value) => _delayedSearch(giphy, value),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        )
+      ]),
+    );
   }
 
   void _delayedSearch(TenorContext giphy, String term) =>

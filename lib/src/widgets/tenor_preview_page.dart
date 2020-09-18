@@ -6,17 +6,41 @@ import 'package:tenor_picker/src/widgets/tenor_image.dart';
 class TenorPreviewPage extends StatelessWidget {
   final TenorGif gif;
   final Widget title;
+  final IconThemeData actionsIconTheme;
+  final IconThemeData iconTheme;
+  final Brightness brightness;
+
   final ValueChanged<TenorGif> onSelected;
 
-  const TenorPreviewPage({@required this.gif, @required this.onSelected, this.title});
+  const TenorPreviewPage(
+      {@required this.gif,
+      @required this.title,
+      @required this.onSelected,
+      this.actionsIconTheme,
+      this.iconTheme,
+      this.brightness});
 
   @override
   Widget build(BuildContext context) {
     final media = MediaQuery.of(context);
 
     return Scaffold(
+        backgroundColor: Colors.black,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => onSelected(gif),
+          child: Icon(Icons.send),
+        ),
         appBar: AppBar(
-            title: title, actions: <Widget>[IconButton(icon: Icon(Icons.check), onPressed: () => onSelected(gif))]),
+          title: Center(
+              child: Text(
+            "Post GIF",
+            style: TextStyle(color: Colors.white),
+          )),
+          actionsIconTheme: actionsIconTheme,
+          iconTheme: iconTheme,
+          brightness: brightness,
+          backgroundColor: Colors.black,
+        ),
         body: SafeArea(
             child: Center(
                 child: TenorImage.original(
