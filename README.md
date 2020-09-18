@@ -15,7 +15,7 @@ import 'package:tenor_client/tenor_client.dart';
 
 final gif = await TenorPicker.pickGif(
                   context: context, 
-                  apiKey: '[YOUR GIPHY APIKEY]');
+                  apiKey: '[YOUR TENOR APIKEY]');
 ```
 
 Display a GIF using the ```TenorImage``` widget. The following snippet demonstrates how to render a GIF in its original format:
