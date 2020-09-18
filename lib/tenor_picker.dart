@@ -11,7 +11,7 @@ export 'package:tenor_picker/src/widgets/tenor_image.dart';
 typedef ErrorListener = void Function(dynamic error);
 
 /// Provides Giphy picker functionality.
-class GiphyPicker {
+class TenorPicker {
   /// Renders a full screen modal dialog for searching, and selecting a Giphy image.
   static Future<TenorGif> pickGif({
     @required BuildContext context,
