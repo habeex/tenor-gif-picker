@@ -16,7 +16,11 @@ class TenorPicker {
   static Future<TenorGif> pickGif({
     @required BuildContext context,
     @required String apiKey,
+    @required AppBar appBar,
     Widget title,
+    IconThemeData actionsIconTheme,
+    IconThemeData iconTheme,
+    Brightness brightness,
     ErrorListener onError,
     bool showPreviewPage = true,
     String searchText = 'Search GIPHY',
