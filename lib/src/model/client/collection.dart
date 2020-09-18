@@ -1,4 +1,4 @@
-import 'package:giphy_picker/src/model/client/tag.dart';
+import 'package:tenor_picker/src/model/client/tag.dart';
 
 class TenorCategories {
   final String locale;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:giphy_picker/tenor_picker.dart';
+import 'package:tenor_picker/tenor_picker.dart';
 
 /// Provides the context for a Giphy search operation, and makes its data available to its widget sub-tree.
 class TenorContext extends InheritedWidget {

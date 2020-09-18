@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:giphy_picker/src/widgets/tenor_search_view.dart';
+import 'package:tenor_picker/src/widgets/tenor_search_view.dart';
 
 class TenorSearchPage extends StatelessWidget {
   final Widget title;

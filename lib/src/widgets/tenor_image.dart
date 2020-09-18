@@ -1,8 +1,8 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-import 'package:giphy_picker/src/model/client/tenorGif.dart';
-import 'package:giphy_picker/src/widgets/tenor_overlay.dart';
+import 'package:tenor_picker/src/model/client/tenorGif.dart';
+import 'package:tenor_picker/src/widgets/tenor_overlay.dart';
 import 'package:http/http.dart';
 
 /// Loads and renders a Giphy image.

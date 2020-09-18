@@ -1,4 +1,4 @@
-import 'package:giphy_picker/src/model/client/mediaobject.dart';
+import 'package:tenor_picker/src/model/client/mediaobject.dart';
 
 class TenorGif {
   final bool hasAudio;

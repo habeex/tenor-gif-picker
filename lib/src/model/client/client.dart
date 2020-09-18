@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:giphy_picker/src/model/client/collection.dart';
-import 'package:giphy_picker/src/model/client/tenorGif.dart';
+import 'package:tenor_picker/src/model/client/collection.dart';
+import 'package:tenor_picker/src/model/client/tenorGif.dart';
 import 'package:http/http.dart';
 import 'package:meta/meta.dart';
 

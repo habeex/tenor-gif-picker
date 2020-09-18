@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:giphy_picker/tenor_picker.dart';
+import 'package:tenor_picker/tenor_picker.dart';
 
 void main() => runApp(MyApp());
 

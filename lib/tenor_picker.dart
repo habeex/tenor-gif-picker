@@ -2,11 +2,11 @@ library tenor_picker;
 
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:giphy_picker/src/model/tenor_client.dart';
-import 'package:giphy_picker/src/widgets/tenor_context.dart';
-import 'package:giphy_picker/src/widgets/tenor_search_page.dart';
-export 'package:giphy_picker/src/model/tenor_client.dart';
-export 'package:giphy_picker/src/widgets/tenor_image.dart';
+import 'package:tenor_picker/src/model/tenor_client.dart';
+import 'package:tenor_picker/src/widgets/tenor_context.dart';
+import 'package:tenor_picker/src/widgets/tenor_search_page.dart';
+export 'package:tenor_picker/src/model/tenor_client.dart';
+export 'package:tenor_picker/src/widgets/tenor_image.dart';
 
 typedef ErrorListener = void Function(dynamic error);
 

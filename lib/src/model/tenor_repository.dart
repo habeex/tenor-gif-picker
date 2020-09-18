@@ -3,8 +3,8 @@ import 'dart:collection';
 import 'dart:typed_data';
 
 import 'package:flutter/foundation.dart';
-import 'package:giphy_picker/src/model/repository.dart';
-import 'package:giphy_picker/tenor_picker.dart';
+import 'package:tenor_picker/src/model/repository.dart';
+import 'package:tenor_picker/tenor_picker.dart';
 
 import 'package:http/http.dart' as http;
 

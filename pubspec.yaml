@@ -1,4 +1,4 @@
-name: giphy_picker
+name: tenor_picker
 description: A plugin that allows you to pick animated GIF images from Giphy.
 version: 1.0.6
 homepage: https://github.com/firstfloorsoftware/giphy_picker

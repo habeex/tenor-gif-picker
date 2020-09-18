@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:giphy_picker/src/model/tenor_repository.dart';
-import 'package:giphy_picker/src/widgets/tenor_context.dart';
-import 'package:giphy_picker/src/widgets/tenor_preview_page.dart';
+import 'package:tenor_picker/src/model/tenor_repository.dart';
+import 'package:tenor_picker/src/widgets/tenor_context.dart';
+import 'package:tenor_picker/src/widgets/tenor_preview_page.dart';
 
-import 'package:giphy_picker/src/widgets/tenor_thumbnail.dart';
+import 'package:tenor_picker/src/widgets/tenor_thumbnail.dart';
 
 /// A selectable grid view of gif thumbnails.
 class TenorThumbnailGrid extends StatelessWidget {

@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:giphy_picker/src/model/tenor_repository.dart';
-import 'package:giphy_picker/src/widgets/tenor_context.dart';
-import 'package:giphy_picker/src/widgets/tenor_thumbnail_grid.dart';
+import 'package:tenor_picker/src/model/tenor_repository.dart';
+import 'package:tenor_picker/src/widgets/tenor_context.dart';
+import 'package:tenor_picker/src/widgets/tenor_thumbnail_grid.dart';
 
 /// Provides the UI for searching Giphy gif images.
 class TenorSearchView extends StatefulWidget {

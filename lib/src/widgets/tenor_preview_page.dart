@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:giphy_picker/src/model/tenor_client.dart';
-import 'package:giphy_picker/src/widgets/tenor_image.dart';
+import 'package:tenor_picker/src/model/tenor_client.dart';
+import 'package:tenor_picker/src/widgets/tenor_image.dart';
 
 /// Presents a Giphy preview image.
 class TenorPreviewPage extends StatelessWidget {

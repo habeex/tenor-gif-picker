@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:collection';
 
-import 'package:giphy_picker/tenor_picker.dart';
+import 'package:tenor_picker/tenor_picker.dart';
 
 /// A general-purpose repository with support for on-demand paged retrieval and caching of values of type T.
 abstract class Repository<T> {
