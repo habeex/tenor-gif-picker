@@ -1,4 +1,4 @@
-library giphy_picker;
+library tenor_picker;
 
 import 'dart:async';
 import 'package:flutter/material.dart';
