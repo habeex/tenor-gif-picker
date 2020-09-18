@@ -1,27 +1,27 @@
-# giphy_picker
+# tenor_picker
 
-A plugin that allows you to pick animated GIF images from [Giphy](https://giphy.com).
+A plugin that allows you to pick animated GIF images from [Tenor](https://tenor.com).
 
-![Gif](https://github.com/firstfloorsoftware/giphy_picker/blob/master/assets/demo.gif)
+
 
 ## Getting Started
 
-First, you need to register an app at the [Giphy Developers Portal](https://developers.giphy.com/) in order to retrieve an API key.
+First, you need to register an app at the [Tenor Developers Portal](https://developers.tenor.com/) in order to retrieve an API key.
 
 Pick a GIF:
 
 ```dart
-import 'package:giphy_picker/giphy_picker.dart';
+import 'package:tenor_client/tenor_client.dart';
 
-final gif = await GiphyPicker.pickGif(
+final gif = await TenorPicker.pickGif(
                   context: context, 
                   apiKey: '[YOUR GIPHY APIKEY]');
 ```
 
-Display a GIF using the ```GiphyImage``` widget. The following snippet demonstrates how to render a GIF in its original format:
+Display a GIF using the ```TenorImage``` widget. The following snippet demonstrates how to render a GIF in its original format:
 ```dart
 Widget build(BuildContext context) {
-  return GiphyImage.original(gif: gif);
+  return TenorImage.original(gif: gif);
 }
 ```
 
@@ -34,5 +34,3 @@ Widget build(BuildContext context) {
 }
 ```
 
-## Acknowledgements
-This plugin depends on the [giphy_client](https://pub.dartlang.org/packages/giphy_client).
