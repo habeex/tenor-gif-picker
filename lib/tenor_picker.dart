@@ -23,7 +23,7 @@ class TenorPicker {
     Brightness brightness,
     ErrorListener onError,
     bool showPreviewPage = true,
-    String searchText = 'Search GIFs',
+    String searchText = 'Search Tenor',
   }) async {
     TenorGif result;
 
@@ -62,7 +62,7 @@ class TenorPicker {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: new Text('Giphy error'),
+          title: new Text('Tenor error'),
           content: new Text('An error occurred. $error'),
           actions: <Widget>[
             new FlatButton(
