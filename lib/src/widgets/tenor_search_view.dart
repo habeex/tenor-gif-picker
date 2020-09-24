@@ -130,7 +130,7 @@ class _TenorSearchViewState extends State<TenorSearchView> {
                                       child: TextField(
                                         controller: _textController,
                                         decoration: InputDecoration.collapsed(
-                                            hintText: 'Search GIFs', hintStyle: TextStyle(fontSize: 16)),
+                                            hintText: 'Search Tenor', hintStyle: TextStyle(fontSize: 16)),
                                         onChanged: (value) => _delayedSearch(giphy, value),
                                       ),
                                     ),
